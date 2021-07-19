@@ -1,26 +1,75 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {
+  DndContext,
+  closestCenter,
+  MouseSensor,
+  TouchSensor,
+  DragOverlay,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  rectSortingStrategy,
+} from '@dnd-kit/sortable';
 
-function App() {
+import {Grid} from './Grid';
+import {SortablePhoto} from './SortablePhoto';
+import {Photo} from './Photo';
+import photos from './photos.json';
+
+const UploadGallery = () => {
+  const [items, setItems] = useState(photos);
+  const [activeId, setActiveId] = useState('');
+  const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        onDragCancel={handleDragCancel}
+     >
+       <SortableContext items={items} strategy={rectSortingStrategy}>
+         <Grid columns={4}>
+           {items.map((url, index) => (
+              <SortablePhoto key={index} url={url} index={index} />
+           ))}
+         </Grid>
+       </SortableContext>
+       
+       <DragOverlay adjustScale={true}>
+         {activeId ? (
+            <Photo url={activeId} index={items.indexOf(activeId)} />
+         ) : null}
+       </DragOverlay>
+     </DndContext>
   );
-}
+  
+  function handleDragStart(event: any) {
+    setActiveId(event.active.id);
+  }
+  
+  function handleDragEnd(event: any) {
+    const {active, over} = event;
+    
+    if (active.id !== over.id) {
+      setItems(() => {
+        const oldIndex = items.indexOf(active.id);
+        const newIndex = items.indexOf(over.id);
+        
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+    
+    setActiveId('');
+  }
+  
+  function handleDragCancel() {
+    setActiveId('');
+  }
+};
 
-export default App;
+export default UploadGallery;
