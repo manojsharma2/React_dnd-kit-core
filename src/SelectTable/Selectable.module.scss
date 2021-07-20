@@ -1,6 +1,6 @@
 $box-shadow-border: 0 0 0 calc(1px / var(--scale-x, 1)) rgba(63, 63, 68, 0.05);
 $box-shadow-raised: 1px 2px calc(8px / var(--scale-x, 1)) 0 rgba(34, 33, 81, 0.25);
-//$raised-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) scaleX(calc(var(--scale-x, 1) * 1.01)) scaleY(calc(var(--scale-y, 1) * 1.01)));
+$raised-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) scaleX(calc(var(--scale-x, 1) * 1.01)) scaleY(calc(var((--scale-y, 1) * 1.01)));
 
 .SelectedItem:after {
     $selected-icon-color: orange;
@@ -25,7 +25,7 @@ $box-shadow-raised: 1px 2px calc(8px / var(--scale-x, 1)) 0 rgba(34, 33, 81, 0.2
 .SelectedItem, .DroppedItem {
 > div {
     box-shadow: $box-shadow-border, $box-shadow-raised;
-    //transform: $raised-transform;
+    transform: $raised-transform;
 }
 }
 

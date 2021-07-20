@@ -22,7 +22,7 @@ import {
 	verticalListSortingStrategy,
 	SortingStrategy,
 } from '@dnd-kit/sortable';
-
+import { CSS } from '@dnd-kit/utilities';
 import { Item } from './item';
 import { List } from './List'
 
@@ -136,7 +136,8 @@ export function Selectable({
 	const sensors = useSensors(
 		useSensor(PointerSensor, {
 			activationConstraint: {
-				distance: 15,
+				delay: 0,
+				tolerance: 1,
 			},
 		}),
 		useSensor(KeyboardSensor, {
@@ -542,6 +543,13 @@ function SelectableSortableItem({
 	} = useSortable({
 		id,
 	});
+	// const useSortableStyle = {
+	// 	transition
+	// }
+	const useSortableStyle = {
+		transform: CSS.Transform.toString(transform),
+		transition,
+	};
 	const mounted = useMountStatus();
 	const mountedWhileDragging = isDragging && !mounted;
 
@@ -576,6 +584,7 @@ function SelectableSortableItem({
 				containerId,
 			})}
 			color={getColor(id)}
+			transition={transition}
 			transform={transform}
 			fadeIn={mountedWhileDragging}
 			listeners={newlisteners}

@@ -21,7 +21,7 @@ export interface Props {
 	listeners?: DraggableSyntheticListeners;
 	sorting?: boolean;
 	style?: React.CSSProperties;
-	transition?: string;
+	transition?: any;
 	wrapperStyle?: React.CSSProperties;
 	value: React.ReactNode;
 	renderItem?(args: {
@@ -118,8 +118,8 @@ export const Item = React.memo(
 							'--index': index,
 							'--color': color,
 							backgroundImage: `url(https://picsum.photos/1920/1080?random=${value})`,
-							height: "250px",
 							backgroundSize: 'cover',
+							backgroundPosition: 'center',
 							backgroundRepeat: "no-repeat"
 						} as React.CSSProperties
 					}
