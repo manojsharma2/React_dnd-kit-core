@@ -136,7 +136,7 @@ export const Item = React.memo(
 																{...(!handle ? listeners : undefined)}
 																{...props}
 													>
-															{value}
+															{value}{console.log("values",value)}
 															{handle ? <Handle {...listeners} /> : null}
 													</div>
 											</li>
