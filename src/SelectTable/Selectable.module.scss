@@ -9,14 +9,14 @@ $box-shadow-raised: 1px 2px calc(8px / var(--scale-x, 1)) 0 rgba(34, 33, 81, 0.2
     color: $selected-icon-color;
     border: 2px solid $selected-icon-color;
     border-radius: 100%;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 13px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     position: absolute;
     top: 6px;
     right: 6px;
