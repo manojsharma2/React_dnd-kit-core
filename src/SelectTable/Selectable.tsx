@@ -136,8 +136,7 @@ export function Selectable({
 	const sensors = useSensors(
 		useSensor(PointerSensor, {
 			activationConstraint: {
-				delay: 0,
-				tolerance: 1,
+				distance: 100,
 			},
 		}),
 		useSensor(KeyboardSensor, {
