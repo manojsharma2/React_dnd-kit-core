@@ -6,11 +6,11 @@ import {Selectable} from "./SelectTable/Selectable";
 export default function App() {
   return (
      <Selectable
-        columns={3}
+        columns={4}
         strategy={rectSortingStrategy}
         wrapperStyle={() => ({
-          width: 150,
-          height: 150
+          width: 300,
+          height: 300
         })}
      />
   );

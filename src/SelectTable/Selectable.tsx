@@ -107,7 +107,7 @@ export const VOID_ID = 'void';
 
 export function Selectable({
 																													adjustScale = false,
-																													itemCount = 240,
+																													itemCount = 30,
 																													collisionDetection = closestCorners,
 																													columns,
 																													handle = false,
@@ -136,7 +136,7 @@ export function Selectable({
 		const sensors = useSensors(
 					useSensor(PointerSensor, {
 							activationConstraint: {
-									distance: 15,
+									distance: 1,
 							},
 					}),
 					useSensor(KeyboardSensor, {

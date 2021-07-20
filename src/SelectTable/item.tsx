@@ -117,6 +117,10 @@ export const Item = React.memo(
 																					: undefined,
 																		'--index': index,
 																		'--color': color,
+																		backgroundImage: `url(https://picsum.photos/1920/1080?random=${value})`,
+																		backgroundSize: 'cover',
+																		backgroundPosition: 'center',
+																		backgroundRepeat: "no-repeat"
 																} as React.CSSProperties
 														}
 														ref={ref}
@@ -136,7 +140,6 @@ export const Item = React.memo(
 																{...(!handle ? listeners : undefined)}
 																{...props}
 													>
-															{value}{console.log("values",value)}
 															{handle ? <Handle {...listeners} /> : null}
 													</div>
 											</li>

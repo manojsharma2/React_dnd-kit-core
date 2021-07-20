@@ -3,7 +3,7 @@ $box-shadow-raised: 1px 2px calc(8px / var(--scale-x, 1)) 0 rgba(34, 33, 81, 0.2
 //$raised-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) scaleX(calc(var(--scale-x, 1) * 1.01)) scaleY(calc(var(--scale-y, 1) * 1.01)));
 
 .SelectedItem:after {
-    $selected-icon-color: #aaa;
+    $selected-icon-color: #ffa500;
 
     content: '\2713';
     color: $selected-icon-color;
