@@ -116,7 +116,6 @@ export const Item = React.memo(
 																					? `${transform.scaleY}`
 																					: undefined,
 																		'--index': index,
-																		'--color': color,
 																		backgroundImage: `url(https://picsum.photos/1920/1080?random=${value})`,
 																		backgroundSize: 'cover',
 																		backgroundPosition: 'center',
@@ -132,7 +131,6 @@ export const Item = React.memo(
 																			handle && styles.withHandle,
 																			dragOverlay && styles.dragOverlay,
 																			disabled && styles.disabled,
-																			color && styles.color
 																)}
 																tabIndex={!handle ? 0 : undefined}
 																style={style}

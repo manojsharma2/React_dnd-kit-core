@@ -107,7 +107,7 @@ export const VOID_ID = 'void';
 
 export function Selectable({
 																													adjustScale = false,
-																													itemCount = 30,
+																													itemCount = 50,
 																													collisionDetection = closestCorners,
 																													columns,
 																													handle = false,
@@ -384,7 +384,20 @@ export function Selectable({
 																											index={index}
 																											handle={handle}
 																											style={getItemStyles}
-																											wrapperStyle={wrapperStyle}
+																											wrapperStyle={({index}) => {
+																													if (index === 0) {
+																															return {
+																																	height: 288,
+																																	gridRowStart: 'span 2',
+																																	gridColumnStart: 'span 2',
+																															};
+																													}
+																													
+																													return {
+																															width: 140,
+																															height: 140,
+																													};
+																											}}
 																											renderItem={renderItem}
 																											containerId={containerId}
 																											getIndex={getIndex}

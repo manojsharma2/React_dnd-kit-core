@@ -9,8 +9,8 @@ export default function App() {
         columns={4}
         strategy={rectSortingStrategy}
         wrapperStyle={() => ({
-          width: 300,
-          height: 300
+          width: 150,
+          height: 150
         })}
      />
   );
