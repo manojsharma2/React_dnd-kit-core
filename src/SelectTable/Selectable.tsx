@@ -545,10 +545,10 @@ function SelectableSortableItem({
 	// const useSortableStyle = {
 	// 	transition
 	// }
-	const useSortableStyle = {
-		transform: CSS.Transform.toString(transform),
-		transition,
-	};
+	// const useSortableStyle = {
+	// 	transform: CSS.Transform.toString(transform),
+	// 	transition,
+	// };
 	const mounted = useMountStatus();
 	const mountedWhileDragging = isDragging && !mounted;
 
@@ -583,7 +583,6 @@ function SelectableSortableItem({
 				containerId,
 			})}
 			color={getColor(id)}
-			transition={transition}
 			transform={transform}
 			fadeIn={mountedWhileDragging}
 			listeners={newlisteners}
