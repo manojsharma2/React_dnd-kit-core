@@ -128,7 +128,6 @@ export function Selectable({
 										[VOID_ID]: [],
 								}
 		);
-		console.log("items",items)
 		const [selectedItems, setSelectedItems] = useState<string[]>([]);
 		const [droppedItems, setDroppedItems] = useState<string[]>([]);
 		const [dragOverlaydItems, setClonedItems] = useState<Items | null>(null);
@@ -429,7 +428,6 @@ export function Selectable({
 																						isDragging: true,
 																						isDragOverlay: true,
 																				})}
-																				color={getColor(activeId)}
 																				wrapperStyle={wrapperStyle({index: 0})}
 																				renderItem={renderItem}
 																				dragOverlay
@@ -452,7 +450,6 @@ export function Selectable({
 																												isDragging: true,
 																												isDragOverlay: true,
 																										})}
-																										color={getColor(itemId)}
 																										wrapperStyle={wrapperStyle({index: 0})}
 																										renderItem={renderItem}
 																										dragOverlay
@@ -468,51 +465,7 @@ export function Selectable({
 										</DragOverlay>,
 										document.body
 							)}
-							{trashable && activeId ? <Trash /> : null}
 					</DndContext>
-		);
-}
-
-function getColor(id: string) {
-		switch (id[0]) {
-				case 'A':
-						return '#7193f1';
-				case 'B':
-						return '#ffda6c';
-				case 'C':
-						return '#00bcd4';
-				case 'D':
-						return '#ef769f';
-		}
-		
-		return undefined;
-}
-
-function Trash() {
-		const {setNodeRef, isOver} = useDroppable({
-				id: VOID_ID,
-		});
-		
-		return (
-					<div
-								ref={setNodeRef}
-								style={{
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
-										position: 'fixed',
-										left: '50%',
-										marginLeft: -150,
-										bottom: 20,
-										width: 300,
-										height: 60,
-										borderRadius: 5,
-										border: '1px solid',
-										borderColor: isOver ? 'red' : '#DDD',
-								}}
-					>
-							Drop here to delete
-					</div>
 		);
 }
 
@@ -588,7 +541,6 @@ function SelectableSortableItem({
 										overIndex: over ? getIndex(over.id) : overIndex,
 										containerId,
 								})}
-								color={getColor(id)}
 								transform={transform}
 								fadeIn={mountedWhileDragging}
 								listeners={newlisteners}
