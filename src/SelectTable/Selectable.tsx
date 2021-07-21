@@ -109,7 +109,7 @@ export function Selectable({
 	adjustScale = false,
 	itemCount = 240,
 	collisionDetection = closestCorners,
-	columns,
+	columns = 4,
 	handle = false,
 	items: initialItems,
 	getItemStyles = () => ({}),
