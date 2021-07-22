@@ -3,11 +3,11 @@ $box-shadow-raised: 1px 2px calc(8px / var(--scale-x, 1)) 0 rgba(34, 33, 81, 0.2
 //$raised-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) scaleX(calc(var(--scale-x, 1) * 1.01)) scaleY(calc(var(--scale-y, 1) * 1.01)));
 
 .SelectedItem:after {
-    $selected-icon-color: #ffa500;
+    $selected-icon-color: #919eab;
 
     content: '\2713';
     color: $selected-icon-color;
-    border: 2px solid $selected-icon-color;
+    border: 0px solid $selected-icon-color;
     border-radius: 100%;
     font-size: 15px;
     line-height: 13px;
@@ -20,6 +20,9 @@ $box-shadow-raised: 1px 2px calc(8px / var(--scale-x, 1)) 0 rgba(34, 33, 81, 0.2
     position: absolute;
     top: 6px;
     right: 6px;
+    border-radius: 100px;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.54);
 }
 
 .SelectedItem, .DroppedItem {
