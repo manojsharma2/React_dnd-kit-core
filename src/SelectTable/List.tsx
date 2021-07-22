@@ -13,7 +13,7 @@ export interface Props {
 export const List = forwardRef<any, Props>(
 	({ children, columns = 1, horizontal, style }: Props, ref) => {
 		return (
-			<ul
+			<div
 				ref={ref}
 				style={
 					{
@@ -26,7 +26,7 @@ export const List = forwardRef<any, Props>(
 				})}
 			>
 				{children}
-			</ul>
+			</div>
 		);
 	}
 );
