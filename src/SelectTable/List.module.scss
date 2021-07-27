@@ -10,7 +10,7 @@
     border-radius: 5px;
     min-height: 200px;
     transition: background-color 350ms ease;
-    max-height: 640px;
+    max-height: 768px;
     overflow: auto;
     // grid-template-columns: repeat(var(--columns, 1), 1fr);
     @media screen and (max-width: 640px) {

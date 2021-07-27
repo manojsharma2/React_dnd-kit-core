@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import classNames from "classnames";
 import { DraggableSyntheticListeners } from "@dnd-kit/core";
 import { Transform } from "@dnd-kit/utilities";
-
+import { Loader } from "../Common"
 import { Handle } from "./Handle";
 
 import styles from "./Item.module.scss";
@@ -152,12 +152,14 @@ export const Item = React.memo(
             <LazyLoad
               scrollContainer={"#helloScroller"}
               style={{ width: "100%", height: "100%", padding: "0px" }}
+              placeholder={<Loader />}
+              throttle={1500}
             >
               <div
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundImage: `url(https://picsum.photos/1920/1080?random=${value})`,
+                  backgroundImage: `url(https://picsum.photos/1920/1080?random=${value}.webp)`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -170,7 +172,7 @@ export const Item = React.memo(
             {handle && newLength !== index ? <Handle {...listeners} /> : null}
             {newLength === index && showMoreBtn ? (
               <button className={styles.BtnCaptions} onClick={showMoreHandler}>
-                <b>+30 More</b>
+                <b>30+ More</b>
               </button>
             ) : null}
           </div>

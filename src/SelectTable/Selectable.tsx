@@ -70,7 +70,6 @@ export const defaultContainerStyle = ({
 }: {
   isOverContainer: boolean;
 }) => ({
-  marginTop: 40,
   backgroundColor: isOverContainer
     ? "rgb(235,235,235,1)"
     : "rgba(246,246,246,1)",
@@ -140,7 +139,7 @@ export function Selectable({
   const showMoreHandler = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-    setAnyMessage(`${e.type} for Show More Button`);
+    setAnyMessage(`EventType: - [${e.type}], Called For Show More Button`);
     const newCount = iCount + 250;
 	setICount(newCount);
 	setShowMoreBtn(false)
@@ -236,7 +235,7 @@ export function Selectable({
       <div
         style={{
           textAlign: "center",
-          position: "fixed",
+          position: "sticky",
           top: 0,
           left: 0,
           right: 0,
@@ -258,7 +257,7 @@ export function Selectable({
         onDragStart={({ active }) => {
           setActiveId(active.id);
           setClonedItems(items);
-          setAnyMessage(`EventType: - [dragStart],`);
+          setAnyMessage(`EventType: - [dragStart], Id: ${active.id}`);
           if (!isItemSelected(active.id)) {
             setSelectedItems([]);
           } else if (selectedItems.length > 0) {
@@ -285,7 +284,7 @@ export function Selectable({
           const overContainer = findContainer(overId);
           const activeContainer = findContainer(active.id);
           setAnyMessage(
-            `EventType: - drag over, ID: [${over?.id}], Active: [${active.id}]`
+            `EventType: - [dragOver], Id: [${over?.id}], Active: [${active.id}]`
           );
           if (!overContainer || !activeContainer) {
             return;
@@ -337,7 +336,7 @@ export function Selectable({
         onDragEnd={({ active, over }) => {
           const activeContainer = findContainer(active.id);
           setAnyMessage(
-            `EventType: - drag end, OverID: [${over?.id}], ActiveId: [${active.id}]`
+            `EventType: - [dragEnd], OverID: [${over?.id}], ActiveId: [${active.id}]`
           );
           if (!activeContainer) {
             setActiveId(null);
