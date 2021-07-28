@@ -13,20 +13,21 @@ export interface Props {
 export const List = forwardRef<any, Props>(
 	({ children, columns = 1, horizontal, style }: Props, ref) => {
 		return (
-			<div
-				ref={ref}
-				style={
-					{
-						...style,
-						"--columns": columns
-					} as React.CSSProperties
-				}
-				className={cx({
-					[styles.List]: true
-				})}
-			>
-				{children}
-			</div>
-		);
+      <div
+        ref={ref}
+        id={"helloScroller"}
+        style={
+          {
+            ...style,
+            "--columns": columns,
+          } as React.CSSProperties
+        }
+        className={cx({
+          [styles.List]: true,
+        })}
+      >
+        {children}
+      </div>
+    );
 	}
 );

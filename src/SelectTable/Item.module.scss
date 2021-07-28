@@ -49,7 +49,11 @@ $focused-outline-color: #4c9ffe;
     z-index: 999;
   }
 }
-
+.NoAfterIcon {
+  &::after{
+    display: none !important;
+  }
+}
 .Item {
   position: relative;
   display: flex;
@@ -77,17 +81,16 @@ $focused-outline-color: #4c9ffe;
   &:focus {
     box-shadow: 0 0px 4px 1px $focused-outline-color, $box-shadow;
   }
-
   &:not(.withHandle) {
     touch-action: none;
     user-select: none;
     -webkit-user-select: none;
     cursor: grab;
   }
-
   &.dragging:not(.dragOverlay) {
     opacity: var(--dragging-opacity, 0.5);
     z-index: 0;
+    border: 5px solid #000;
     & .BtnCaptions{
       display: none;
     }

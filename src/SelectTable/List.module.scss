@@ -10,11 +10,12 @@
     border-radius: 5px;
     min-height: 200px;
     transition: background-color 350ms ease;
-    max-height: 70vw;
+    max-height: 768px;
     overflow: auto;
     // grid-template-columns: repeat(var(--columns, 1), 1fr);
     @media screen and (max-width: 640px) {
         grid-template-columns: repeat(2, 1fr);
+        max-height: calc(100vh - 100px);
     }
     @media screen and (min-width: 641px) and  (max-width: 768px) {
         grid-template-columns: repeat(4, 1fr);
