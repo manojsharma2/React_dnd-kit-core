@@ -13,11 +13,14 @@
     "@types/node": "^12.20.16",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "@types/react-image-crop": "^8.1.3",
     "@types/react-lazyload": "^3.1.1",
     "classnames": "^2.3.1",
+    "heir": "^2.0.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-image-crop": "^8.6.12",
     "react-lazyload": "^3.2.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.3.5",
@@ -46,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.8",
+    "react-router-dom": "^5.2.0"
   }
 }

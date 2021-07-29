@@ -1,19 +1,28 @@
 import React from "react";
-import { rectSortingStrategy } from "@dnd-kit/sortable";
 
-import { Selectable } from "./SelectTable/Selectable";
+import SelectableComponent from "./SelectableComponent";
+import PhotoEditor from "./PhotoEditor/PhotoEditor";
+import PhotoEditorV2 from "./PhotoEditor/PhotoEditorV2";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 
 export default function App() {
   return (
     <>
-      <Selectable
-        columns={2}
-        strategy={rectSortingStrategy}
-        wrapperStyle={() => ({
-          width: 150,
-          height: 150
-        })}
-      />
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <SelectableComponent />
+          </Route>
+          <Route path="/photoEditor" exact>
+            <PhotoEditor />
+          </Route>
+          <Route path="/photoEditorv2" exact>
+            <PhotoEditorV2 />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
