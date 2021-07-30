@@ -366,7 +366,7 @@ export default function PhotoEditor() {
         valueLabelDisplay="auto"
         aria-label="Saturate"
         defaultValue={0}
-        min={-100}
+        min={0}
         max={100}
         onChange={(event: object, value: number | number[]) => {
           onContrastChange(event, imagePreviewCanvasRef, value, imageRef);
