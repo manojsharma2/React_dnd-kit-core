@@ -15,3 +15,38 @@ code {
   max-width: 100%;
   box-sizing: border-box;
 }
+.ReactCrop__crop-selection{
+  border-image-source: none !important;
+  border: 1px solid #fff !important;
+}
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-ne:after,
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-nw:after,
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-se:after,
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-sw:after{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-nw:after{
+  top: -5px;
+  left: -5px;
+}
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-ne:after{
+  top: -5px;
+  right: -5px;
+}
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-sw:after{
+  bottom: -5px;
+  left: -5px;
+}
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-se:after{
+  bottom: -5px;
+  right: -5px;
+}
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-n:after,
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-e:after,
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-s:after,
+.ReactCrop__crop-selection .ReactCrop__drag-handle.ord-w:after{
+  display: none !important;
+}

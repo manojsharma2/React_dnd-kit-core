@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { Slider, Button, Grid, Typography, Box } from "@material-ui/core";
+import { Slider, Button, Grid, Typography } from "@material-ui/core";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
@@ -45,7 +45,13 @@ export default function PhotoEditorV2() {
   const [cropableImage, setCropableIamge] = useState<string>(
     "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg"
   );
-  const [cropRatio, setCropRatio] = useState<any>({ aspect: 16 / 9 });
+  const [cropRatio, setCropRatio] = useState<any>({
+    width: 96,
+    height: 92,
+    unit: "%",
+    x: 2,
+    y: 4,
+  });
   const [croper, showCroper] = useState<boolean>(false);
 
   // Create handlers
@@ -242,35 +248,35 @@ export default function PhotoEditorV2() {
       }
     }
     if ($Saturation !== 0) {
-        // var sv = $Saturation; // saturation value. 0 = grayscale, 1 = original
+      // var sv = $Saturation; // saturation value. 0 = grayscale, 1 = original
 
-        // var luR = 0.3086; // constant to determine luminance of red. Similarly, for green and blue
-        // var luG = 0.6094;
-        // var luB = 0.082;
+      // var luR = 0.3086; // constant to determine luminance of red. Similarly, for green and blue
+      // var luG = 0.6094;
+      // var luB = 0.082;
 
-        // var az = (1 - sv) * luR + sv;
-        // var bz = (1 - sv) * luG;
-        // var cz = (1 - sv) * luB;
-        // var dz = (1 - sv) * luR;
-        // var ez = (1 - sv) * luG + sv;
-        // var fz = (1 - sv) * luB;
-        // var gz = (1 - sv) * luR;
-        // var hz = (1 - sv) * luG;
-        // var iz = (1 - sv) * luB + sv;
+      // var az = (1 - sv) * luR + sv;
+      // var bz = (1 - sv) * luG;
+      // var cz = (1 - sv) * luB;
+      // var dz = (1 - sv) * luR;
+      // var ez = (1 - sv) * luG + sv;
+      // var fz = (1 - sv) * luB;
+      // var gz = (1 - sv) * luR;
+      // var hz = (1 - sv) * luG;
+      // var iz = (1 - sv) * luB + sv;
 
-        // for (let i = 0; i < d.length; i += 4) {
-        //   var red = d[i]; // Extract original red color [0 to 255]. Similarly for green and blue below
-        //   var green = d[i + 1];
-        //   var blue = d[i + 2];
+      // for (let i = 0; i < d.length; i += 4) {
+      //   var red = d[i]; // Extract original red color [0 to 255]. Similarly for green and blue below
+      //   var green = d[i + 1];
+      //   var blue = d[i + 2];
 
-        //   var saturatedRed = az * red + bz * green + cz * blue;
-        //   var saturatedGreen = dz * red + ez * green + fz * blue;
-        //   var saturateddBlue = gz * red + hz * green + iz * blue;
+      //   var saturatedRed = az * red + bz * green + cz * blue;
+      //   var saturatedGreen = dz * red + ez * green + fz * blue;
+      //   var saturateddBlue = gz * red + hz * green + iz * blue;
 
-        //   d[i] = saturatedRed;
-        //   d[i + 1] = saturatedGreen;
-        //   d[i + 2] = saturateddBlue;
-        // }
+      //   d[i] = saturatedRed;
+      //   d[i + 1] = saturatedGreen;
+      //   d[i + 2] = saturateddBlue;
+      // }
       let rgb: any = {
         r: null,
         g: null,
@@ -438,6 +444,46 @@ export default function PhotoEditorV2() {
         </Grid>
         <Grid item xs={4}>
           <Typography component={"h1"} children={"Image Editor"} />
+          {croper && (
+            <>
+              <Button
+                variant="outlined"
+                color="secondary"
+                children={"16:9"}
+                onClick={() => {
+                  setCropRatio({ aspect: 16 / 9, width: 80, unit: '%', x: 10, y: 4, });
+                }}
+              />
+              <Button
+                variant="outlined"
+                color="secondary"
+                children={"1:1"}
+                onClick={() => {
+                  setCropRatio({
+                    aspect: 1,
+                    width: 50,
+                    unit: "%",
+                    x: 25,
+                    y: 2,
+                  });
+                }}
+              />
+              <Button
+                variant="outlined"
+                color="secondary"
+                children={"4:3"}
+                onClick={() => {
+                  setCropRatio({
+                    aspect: 4 / 3,
+                    width: 80,
+                    unit: "%",
+                    x: 10,
+                    y: 0,
+                  });
+                }}
+              />
+            </>
+          )}
           <Grid container spacing={2}>
             <Grid item xs={6}>
               {!croper && (
