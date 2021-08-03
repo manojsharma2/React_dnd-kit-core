@@ -40,11 +40,9 @@ export default function PhotoEditorV2() {
   const imageRef = useRef<HTMLCanvasElement | null>(null);
 
   // Create states
-  const [canvasContext, setCanvasContext] =
-    useState<CanvasRenderingContext2D | null>(null);
-  const [cropableImage, setCropableIamge] = useState<string>(
-    "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg"
-  );
+  // const [canvasContext, setCanvasContext] =
+  //   useState<CanvasRenderingContext2D | null>(null);
+  const cropableImage = "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg"
   const [cropRatio, setCropRatio] = useState<any>({
     width: 96,
     height: 92,
@@ -90,7 +88,7 @@ export default function PhotoEditorV2() {
       copyContext.drawImage(srcCanvas, 0, 0);
     }
 
-    let angle, canvas, ctx, height, to_radians, width, x, y;
+    let angle, ctx, height, to_radians, width, x, y;
     angle = degrees % 360;
 
     to_radians = Math.PI / 180;
@@ -399,7 +397,7 @@ export default function PhotoEditorV2() {
       // Create canvasContext
       $CanvasContext = canvasRef.current.getContext("2d");
       // update state
-      setCanvasContext($CanvasContext);
+      // setCanvasContext($CanvasContext);
       // create image
       const image: any = createImage(cropableImage);
       image.crossOrigin = "anonymous";

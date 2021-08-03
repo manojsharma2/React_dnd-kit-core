@@ -37,9 +37,7 @@ const PrettoSlider = withStyles({
 export default function PhotoEditor() {
   const [crop, setCrop] = useState<any>({ aspect: 16 / 9 });
   // const [original, setOriginal] = useState<any>({ width: 0, height: 0 });;
-  const [imgSrc, setImgSrc] = useState<any>(
-    "https://picsum.photos/1920/1080?random=1"
-  );
+  const imgSrc = "https://picsum.photos/1920/1080?random=1";
   const imagePreviewCanvasRef = useRef(null);
   const imageRef = useRef(null);
   // const image64toCanvasRef = (
@@ -154,7 +152,7 @@ export default function PhotoEditor() {
       copyContext.drawImage(srcCanvas, 0, 0);
     }
 
-    let angle, canvas, ctx, height, to_radians, width, x, y;
+    let angle, ctx, height, to_radians, width, x, y;
     angle = degrees % 360;
 
     to_radians = Math.PI / 180;
@@ -284,12 +282,12 @@ export default function PhotoEditor() {
       if (imageData && $origImgCtx) $origImgCtx.putImageData(imageData, 0, 0);
       return imageData;
     };
-    const adjustPixelBrightness = function (rgb: any, adjustment: any) {
-      // Simply add to the colors current value.
-      rgb.r += adjustment;
-      rgb.g += adjustment;
-      rgb.b += adjustment;
-    };
+    // const adjustPixelBrightness = function (rgb: any, adjustment: any) {
+    //   // Simply add to the colors current value.
+    //   rgb.r += adjustment;
+    //   rgb.g += adjustment;
+    //   rgb.b += adjustment;
+    // };
     const truncateColor = (value: any) => {
       if (value < 0) {
         value = 0;
