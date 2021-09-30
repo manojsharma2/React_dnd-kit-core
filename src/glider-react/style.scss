@@ -1,0 +1,131 @@
+%hiddenDisabledArrow {
+  .glider-contain {
+    .glider-next.disabled, .glider-prev.disabled {
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin setArrowColor($color, $hoverColor, $focusColor: $color) {
+  .glider-next, .glider-prev {
+    color: $color;
+
+    /* THIS IS IMPORTANT! */
+    /* Hover and focus can be in the same time, */
+    /* after click arrow have :focus and :hover. */
+    /* So the order of style is important. */
+    /* Try, what happening when change order and use arrows ;) */
+    &:focus {
+      /* Oryginal color, but on focus is is lighter */
+      color: $focusColor;
+    }
+
+    &:hover {
+      color: $hoverColor;
+    }
+  }
+}
+
+body {
+  margin: 0px;
+}
+
+.App {
+  font-family: sans-serif;
+  // text-align: center;
+
+  position: relative;
+  // min-width: 100%;
+  // max-height: none;
+  // height: 100%;
+  // display: flex
+}
+
+.photos-gallery {
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+  position: fixed;
+  background: black;
+
+  width: 100%;
+  height: 100%;
+}
+
+.glider {
+  //  /* Don't go this way, if You wanna swip */
+  //   overflow: hidden;
+  scrollbar-width: none;
+}
+
+.photo-wrapper {
+  @extend %hiddenDisabledArrow;
+  @include setArrowColor(#666, magenta);
+  padding: 0px 30px;
+  margin: 0px auto;
+  height: 0vh;
+  flex-grow: 1;
+  width: calc(100% - 60px);
+
+  .glider-contain {
+    height: 100%;
+
+    .glider {
+      height: 100%;
+
+      .glider-track {
+        height: 100%;
+      }
+    }
+  }
+
+  .slide__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+    }
+  }
+}
+
+.thumbnails-wrapper {
+  @extend %hiddenDisabledArrow;
+  @include setArrowColor(tomato, magenta);
+  padding: 0px 30px;
+  margin: 0px auto;
+  max-width: calc(100% - 60px);
+  height: 136px;
+
+  .glider-slide + .glider-slide .slide__content {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .slide__content {
+    display: flex;
+    height: 85px;
+    width: 115px;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #FFFFFF;
+    margin: 15px 5px 15px 0px;
+    padding: 0px;
+
+    &.--current-selected {
+      border: 2px solid #FF4500;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

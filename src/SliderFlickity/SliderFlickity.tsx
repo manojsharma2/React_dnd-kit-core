@@ -118,7 +118,7 @@ export default function SliderFlickity() {
                 {slidesData.map((slide:any) =>
 
                     <div className="carousel-cell" key={slide.id}>
-                        <img className="slick-slide-image" src={`https://picsum.photos/800/400?img=${slide.id}`}  alt={slide.id}/>
+                        <img className="slick-slide-image" src={`https://picsum.photos/800/400?img=${slide.id}`}  alt={'1'}/>
                     </div>
 
                 )}
