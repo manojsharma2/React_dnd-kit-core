@@ -1,8 +1,6 @@
 
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-;
-src/App.css,a\a\aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
 P
  src/SliderFlickity/flickity.scss,b\b\bb9c7e6eb4144d70b5011112031a9a9e29298f79
 A
@@ -17,3 +15,7 @@ N
 src/ReactSlickNavBar/index.jsx,0\e\0e775ecec9ed2602c3730325ea35fe7763beb6cb
 K
 src/glider-react/style.scss,9\3\931f7fd069aad483aad52ec0b26bffd4f4fa43b3
+J
+src/glider-react/index.tsx,f\f\ff2843f2c516e0ebc64363b2601c93116b222620
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a

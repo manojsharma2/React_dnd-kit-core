@@ -3,15 +3,11 @@ import React, { useState,useRef } from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
-import "swiper/swiper.scss";
-
-import "./style.scss";
-
-
 // import Swiper core and required modules
 import SwiperCore, {
     Navigation,Thumbs
 } from 'swiper';
+import useStyles from './styles'
 
 // install Swiper modules
 SwiperCore.use([Navigation,Thumbs]);
@@ -21,6 +17,7 @@ export default function SwiperSlider() {
     const nextButtonRef = useRef(null)
     const previousButtonRef = useRef(null)
     const [activeIndex,setActiveIndex]=useState(0)
+    const classes=useStyles()
     const photosToShow = [
         'https://picsum.photos/800/400?img=1',
         'https://picsum.photos/800/400?img=2',
@@ -173,17 +170,17 @@ export default function SwiperSlider() {
         'https://picsum.photos/800/400?img=150',
     ];
     const activeIndexChange = (swiper) => {
-        console.log('event', swiper.clickedIndex)
         setActiveIndex(swiper.activeIndex-swiper.loopedSlides)
     }
     const onClick = (swiper) => {
         setActiveIndex(swiper.clickedIndex-swiper.loopedSlides)
-        console.log('event', swiper)
+        swiper.updateActiveIndex(swiper.clickedIndex);
+        console.log('event', swiper.activeIndex)
     }
 
 
     return (
-        <>
+        <div className={classes.root}>
 
             <div className="divContainer">
                 <div className="swiper-button-prev" ref={previousButtonRef}>
@@ -220,6 +217,6 @@ export default function SwiperSlider() {
                     return (<SwiperSlide key={index}><img src={imageUrl} key={index}/></SwiperSlide>)
                 })}
             </Swiper>
-        </>
+        </div>
     )
 }
